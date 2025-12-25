@@ -22,6 +22,8 @@ app.use(
   })
 );
 
+const PORT = process.env.PORT || 8000;
+
 app.post("/create-account", async (req, res) => {
   const { fullName, email, password } = req.body;
   if (!fullName) {
@@ -307,6 +309,6 @@ app.get("/search-notes/", authenticateToken, async (req, res) => {
   }
 });
 
-app.listen(8000, () => console.log("Server is running on port 8000"));
+app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
 
 module.exports = app;
